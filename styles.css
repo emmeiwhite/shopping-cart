@@ -26,7 +26,7 @@ body {
 
 /* --- navbar --- */
 .navbar {
-  height: 3.75rem;
+  height: 3.75rem; /* 60px */
   display: flex;
   align-items: center;
   background: rgb(231, 226, 221);
@@ -63,4 +63,44 @@ body {
   border-radius: 30%;
   background-color: var(--primaryColor);
   color: var(--mainWhite);
+}
+
+/* hero section */
+.hero {
+  min-height: calc(100vh - 60px);
+  background: url("./images/hero-bcg.jpeg") center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner {
+  display: inline-block;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.8);
+  text-align: center;
+}
+
+.banner-title {
+  text-transform: uppercase;
+  font-size: 3.4rem;
+  margin-bottom: 3rem;
+  letter-spacing: var(--mainSpacing);
+}
+
+.banner-btn {
+  padding: 1rem 3rem;
+  background: var(--primaryColor);
+  text-transform: uppercase;
+  font-size: 1rem;
+  transition: var(--mainTransition);
+  cursor: pointer;
+  color: var(--mainBlack);
+  letter-spacing: var(--mainSpacing);
+  border: 1px solid var(--primaryColor);
+}
+
+.banner-btn:hover {
+  background: transparent;
+  color: var(--primaryColor);
 }
