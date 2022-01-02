@@ -141,7 +141,7 @@ body {
   transition: var(--mainTransition);
   letter-spacing: var(--mainSpacing);
   background-color: var(--primaryColor);
-  transform: translateX(101%);
+  transform: translateX(100%);
   text-transform: uppercase;
   cursor: pointer;
   font-weight: bold;
@@ -185,4 +185,110 @@ body {
 .product h4 {
   margin-top: 0.7rem;
   color: var(--primaryColor);
+}
+
+/* cart */
+.cart-overlay {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  transition: var(--mainTransition);
+  background-color: rgba(240, 157, 81, 0.5);
+  z-index: 2;
+  visibility: hidden;
+}
+
+.cart {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  transition: var(--mainTransition);
+  background-color: rgb(231, 226, 221);
+  z-index: 3;
+  transform: translateX(100%);
+  padding: 1.5rem;
+  overflow: scroll;
+}
+
+/* show/hide cart with Javascript */
+.showCart {
+  transform: translateX(0);
+}
+
+.transparentBcg {
+  visibility: visible;
+}
+
+@media (min-width: 768px) {
+  .cart {
+    width: 30vw;
+    min-width: 450px;
+  }
+}
+
+.close-cart {
+  font-size: 1.7rem;
+  cursor: pointer;
+}
+
+.cart h2 {
+  text-transform: capitalize;
+  margin-bottom: 2rem;
+  text-align: center;
+  letter-spacing: var(--mainSpacing);
+}
+
+/* cart-item */
+.cart-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  column-gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.cart-item img {
+  height: 75px;
+  width: 75px;
+}
+
+.cart-item h4 {
+  font-size: 0.85rem;
+  text-transform: capitalize;
+  letter-spacing: var(--mainSpacing);
+}
+
+.cart-item h5 {
+  margin: 0.5rem 0;
+  letter-spacing: var(--mainSpacing);
+}
+
+.item-amount {
+  text-align: center;
+}
+
+.remove-item {
+  color: gray;
+  cursor: pointer;
+}
+
+.fa-chevron-up,
+.fa-chevron-down {
+  color: var(--primaryColor);
+  cursor: pointer;
+}
+/* cart footer */
+.cart-footer {
+  text-align: center;
+  margin-top: 2rem;
+  letter-spacing: var(--mainSpacing);
+}
+
+.cart-footer h3 {
+  text-transform: capitalize;
+  margin-bottom: 1rem;
 }
