@@ -30,7 +30,7 @@ body {
   display: flex;
   align-items: center;
   background: rgb(231, 226, 221);
-  width: 100vw;
+  width: 100%;
   position: sticky;
   top: 0;
   z-index: 1;
@@ -102,5 +102,87 @@ body {
 
 .banner-btn:hover {
   background: transparent;
+  color: var(--primaryColor);
+}
+
+/* products */
+.products {
+  padding: 4rem 0;
+}
+
+.section-title h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: var(--mainSpacing);
+  margin-bottom: 5rem;
+}
+
+.products-center {
+  width: 90vw;
+  max-width: 1170px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem 1.5rem;
+  margin: 0 auto;
+}
+
+.img-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.bag-btn {
+  position: absolute;
+  top: 70%;
+  right: 0;
+  padding: 0.5rem 0.75rem;
+  border: none;
+  transition: var(--mainTransition);
+  letter-spacing: var(--mainSpacing);
+  background-color: var(--primaryColor);
+  transform: translateX(101%);
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.bag-btn:hover {
+  color: var(--mainWhite);
+}
+
+.img-container:hover .bag-btn {
+  transform: translateX(0);
+}
+
+.fa-shopping-cart {
+  margin-right: 0.5rem;
+}
+
+.product-img {
+  width: 100%;
+  min-height: 12rem;
+  transition: var(--mainTransition);
+  display: block;
+}
+
+.img-container:hover .product-img {
+  opacity: 0.5;
+}
+
+.product h3,
+.product h4 {
+  letter-spacing: var(--mainSpacing);
+  text-align: center;
+}
+
+.product h3 {
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  text-transform: capitalize;
+}
+
+.product h4 {
+  margin-top: 0.7rem;
   color: var(--primaryColor);
 }
