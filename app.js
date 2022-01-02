@@ -56,7 +56,8 @@ class UI {
               class="product-img"
             />
             <button class="bag-btn" data-id=${id}>
-              <i class="fas fa-shopping-cart"> add to bag </i>
+              <i class="fas fa-shopping-cart"></i>
+              add to bag
             </button>
           </div>
 
@@ -82,6 +83,7 @@ class UI {
       }
 
       btn.addEventListener("click", (event) => {
+        console.log(event);
         event.target.innerText = "In Cart";
         event.target.disabled = true;
 
