@@ -17,11 +17,19 @@ let cart = []; // Manipuate data from LocalStorage and back
 class Products {
   async getProducts() {
     try {
-      const result = await fetch("./produts.json");
-      console.log(result);
+      const result = await fetch("./products.json");
       if (result.status >= 200 && result.status <= 399) {
         const data = await result.json();
-        return data; // Async fxn always returns a promise
+
+        let products = data.items.map((item) => {
+          const { id } = item.sys;
+          const { title, price } = item.fields;
+          const image = item.fields.image.fields.file;
+
+          return { id, title, image, price };
+        });
+
+        return products;
       } else {
         throw new Error("Data could't be found");
       }
@@ -42,5 +50,5 @@ document.addEventListener("DOMContentLoaded", () => {
   const ui = new UI();
   const products = new Products();
 
-  products.getProducts().then((data) => console.log(data));
+  products.getProducts().then((products) => console.log(products));
 });
