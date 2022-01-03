@@ -83,23 +83,61 @@ class UI {
       }
 
       btn.addEventListener("click", (event) => {
-        console.log(event);
         event.target.innerText = "In Cart";
         event.target.disabled = true;
 
         // get product from localStorage products
-        const currentProduct = Storage.getProduct(id);
-        let cartItem = { ...currentProduct, amount: 1 };
+        let cartItem = { ...Storage.getProduct(id), amount: 1 };
 
         // add product to the cart
         cart = [...cart, cartItem];
+
         // save cart in local Storage
         Storage.saveCart(cart);
+
         // set cart Values
+        this.setCartValues(cart);
+
         // display cart item
+        this.setCartItem(cartItem);
         // show the cart
       });
     });
+  }
+
+  setCartValues(cart) {
+    let itemsTotal = 0;
+    let tempTotal = 0;
+
+    cart.map((item) => {
+      itemsTotal += item.amount * item.price;
+      tempTotal += item.amount;
+    });
+    cartItems.innerText = tempTotal;
+    cartTotal.innerText = parseFloat(itemsTotal.toFixed(2));
+  }
+
+  setCartItem(item) {
+    let div = document.createElement("div");
+    div.classList.add("cart-item");
+    div.innerHTML += `
+            <img src=${item.image} alt="product" />
+
+            <div>
+              <h4>${item.title}</h4>
+              <h5>$ ${item.price}</h5>
+              <span class="remove-item" data-id=${item.id}>remove</span>
+            </div>
+
+            <div>
+              <i class="fas fa-chevron-up" data-id=${item.id}></i>
+              <p class="item-amount">${item.amount}</p>
+              <i class="fas fa-chevron-down" data-id=${item.id}></i>
+            </div>
+          `;
+
+    cartContent.appendChild(div);
+    console.log(cartContent);
   }
 }
 
@@ -111,8 +149,7 @@ class Storage {
 
   static getProduct(id) {
     let products = JSON.parse(localStorage.getItem("products"));
-    const currentProduct = products.find((product) => product.id === id);
-    return currentProduct;
+    return products.find((product) => product.id === id);
   }
 
   static saveCart(cart) {
