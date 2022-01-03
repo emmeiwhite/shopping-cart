@@ -155,14 +155,15 @@ class UI {
   // This is where the logic of data with flourish from
   setupApp() {
     cart = Storage.getCart();
+    console.log(cart);
     this.setCartValues(cart);
     this.populateCart(cart);
     cartBtn.addEventListener("click", this.showCart);
     closeCartBtn.addEventListener("click", this.hideCart);
   }
 
-  populateCart() {
-    cart.forEach((item) => setCartItem(item));
+  populateCart(cart) {
+    cart.forEach((item) => this.setCartItem(item));
   }
 }
 
